@@ -1,7 +1,24 @@
 "use client";
+import { useParams } from "next/dist/client/components/navigation";
 import { Button } from "../composants/button";
 
 export const Hero = () => {	
+	const params = useParams();
+	const locale = params.locale === "en" ? "en" : "fr";
+	const isEnglish = locale === "en";
+	const texts = {
+		en: {
+			titre: "Launch your workspaces faster with",
+			kapsule: "Kapsule.",
+			telecharger: "Download",
+		},
+		fr: {
+			titre: "Lancez vos espaces de travail plus vite avec",
+			kapsule: "Kapsule.",
+			telecharger: "Télécharger",
+		},
+	};
+
 	return (
 		/* h-screen + w-screen forcent le composant à occuper 100% du viewport */
 		<section id="hero" className="h-screen w-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12
@@ -21,10 +38,9 @@ export const Hero = () => {
 			<div className="flex flex-col lg:flex-row items-center justify-center h-full p-20 gap-5">
 				<div className="font-bold text-white mb-4 w-1/2">
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl md font-bold text-white mb-4">
-						<span className="text_violet">Lancer vos espaces de travail plus vite avec </span>
-						Kapsule.
+						 <span className="text-violet-500">{texts[locale].titre}</span> {texts[locale].kapsule}
 					</h1>
-					<Button texte="Télécharger" lien="/vscode-survival-kit.zip" />
+					<Button texte={texts[locale].telecharger} lien="/vscode-survival-kit.zip" />
 				</div>
 
 				<div className="w-full max-w-4xl hidden xl:block perspective-container">

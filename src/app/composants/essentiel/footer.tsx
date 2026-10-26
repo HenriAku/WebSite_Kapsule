@@ -1,8 +1,49 @@
 "use client";
 
+import { useParams } from "next/dist/client/components/navigation";
 import Link from "next/link";
 
 export const Footer = () => {
+	const params = useParams();
+	const locale = params.locale === "en" ? "en" : "fr";
+	const isEnglish = locale === "en";
+
+	const links = [
+		{
+			label: isEnglish ? "Home" : "Accueil",
+			href: "#hero",
+			id: "hero",
+		},
+		{
+			label: isEnglish ? "Demo" : "Démo",
+			href: "#demo",
+			id: "demo",
+		},
+		{
+			label: isEnglish ? "Features" : "Fonctionnalités",
+			href: "#fonctionnalites",
+			id: "fonctionnalites",
+		},
+		{
+			label: "FAQ",
+			href: "#faq",
+			id: "faq",
+		},
+	];
+
+	const texts = {
+		en: {
+			quickLinks: "Quick Links:",
+			socials: "Socials:",
+			droits: "© 2026 Designed by Henri — All rights reserved.",
+		},
+		fr: {
+			quickLinks: "Liens rapides:",
+			socials: "Réseaux:",
+			droits: "© 2026 Conçu par Henri — Tous droits réservés.",
+		},
+	};
+
 	return (
 		<footer className="bg-gradient-to-b from-[#0B0F39] to-[#262378] p-4 flex flex-col items-center justify-center">
 			<div className="md:text-left mb-4 font 
@@ -20,17 +61,22 @@ export const Footer = () => {
 
 				<div className="md:ml-15">		
 					<ul>
-						<li>Liens rapides :</li>
-						<li className="hover_bleu"><Link href="#hero">&times; Accueil</Link></li>
-						<li className="hover_bleu"><Link href="#demo">&times; Démo</Link></li>
-						<li className="hover_bleu"><Link href="#fonctionnalites">&times; Fonctionnalites</Link></li>
-						<li className="hover_bleu"><Link href="#faq">&times; FAQ</Link></li>
+						<li>{texts[locale].quickLinks}</li>
+						{links.map((link) => (
+							<li key={link.id} className="hover_violet">
+								<Link
+									href={link.href}
+								>
+									&times; {link.label}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 
 				<div className="md:ml-15">		
 					<ul>
-						<li>Réseaux :</li>
+						<li>{texts[locale].socials}</li>
 						<li className="hover_bleu">
 							<Link href="https://github.com/HenriAku" target="_blank" rel="noopener noreferrer">&times; GitHub</Link>
 						</li>
@@ -41,7 +87,9 @@ export const Footer = () => {
 				</div>
 			</div>
 
-			<p className="text-center">&copy; 2026 Conçu par Henri — Tous droits réservés.</p>
+			<p className="text-center">
+				{texts[locale].droits}
+			</p>
 		</footer>
 	);
 };

@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export const Navbar = () => {
 	const [open, setOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [activeSection, setActiveSection] = useState("hero");
+
+	const params = useParams();
+	const locale = params.locale === "en" ? "en" : "fr";
+	const isEnglish = locale === "en";
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -23,7 +28,9 @@ export const Navbar = () => {
 	useEffect(() => {
 		const sections = ["hero", "demo", "fonctionnalites", "faq"]
 			.map((id) => document.getElementById(id))
-			.filter((section): section is HTMLElement => section !== null);
+			.filter(
+				(section): section is HTMLElement => section !== null
+			);
 
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -50,14 +57,26 @@ export const Navbar = () => {
 	}, []);
 
 	const links = [
-		{ label: "Accueil", href: "#hero", id: "hero" },
-		{ label: "Démo", href: "#demo", id: "demo" },
 		{
-			label: "Fonctionnalités",
+			label: isEnglish ? "Home" : "Accueil",
+			href: "#hero",
+			id: "hero",
+		},
+		{
+			label: isEnglish ? "Demo" : "Démo",
+			href: "#demo",
+			id: "demo",
+		},
+		{
+			label: isEnglish ? "Features" : "Fonctionnalités",
 			href: "#fonctionnalites",
 			id: "fonctionnalites",
 		},
-		{ label: "FAQ", href: "#faq", id: "faq" },
+		{
+			label: "FAQ",
+			href: "#faq",
+			id: "faq",
+		},
 	];
 
 	return (
@@ -75,7 +94,9 @@ export const Navbar = () => {
 					<button
 						className="lg:hidden text-3xl"
 						onClick={() => setOpen(!open)}
-						aria-label="Ouvrir le menu"
+						aria-label={
+							isEnglish ? "Open menu" : "Ouvrir le menu"
+						}
 						aria-expanded={open}
 					>
 						☰
@@ -114,6 +135,22 @@ export const Navbar = () => {
 								</Link>
 							</li>
 						))}
+
+						<li className="hover_violet">
+							<Link
+								href={isEnglish ? "/fr" : "/en"}
+								hrefLang={isEnglish ? "fr" : "en"}
+								onClick={() => setOpen(false)}
+								aria-label={
+									isEnglish
+										? "Switch to French"
+										: "Passer en anglais"
+								}
+								className="transition-all duration-300"
+							>
+								{isEnglish ? "FR" : "EN"}
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</nav>
