@@ -55,14 +55,14 @@ export const metadata: Metadata = {
 	openGraph: {
 		type: "website",
 		locale: "fr_FR",
-		url: "https://Kapsule.netlify.app",
+		url: "https://software-kapsule.netlify.app",
 		siteName: "Kapsule",
 		title: "Kapsule | Gestion d'espaces de travail",
 		description:
 			"Kapsule est un logiciel de gestion d'espaces de travail. Il vous permet de créer des Kapsules, d'organiser vos applications et de lancer vos espaces de travail plus rapidement.",
 		images: [
 			{
-				url: "https://Kapsule.netlify.app",
+				url: "https://software-kapsule.netlify.app",
 				width: 1200,
 				height: 630,
 				alt: "Kapsule | Gestion d'espaces de travail",
@@ -75,11 +75,11 @@ export const metadata: Metadata = {
 		title: "Kapsule | Gestion d'espaces de travail",
 		description:
 			"Kapsule est un logiciel de gestion d'espaces de travail. Il vous permet de créer des Kapsules, d'organiser vos applications et de lancer vos espaces de travail plus rapidement.",
-		images: ["https://Kapsule.netlify.app"],
+		images: ["https://software-kapsule.netlify.app"],
 	},
 
 	alternates: {
-		canonical: "https://Kapsule.netlify.app",
+		canonical: "https://software-kapsule.netlify.app",
 	},
 };
 
