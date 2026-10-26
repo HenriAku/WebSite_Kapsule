@@ -40,7 +40,7 @@ export const Hero = () => {
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl md font-bold text-white mb-4">
 						 <span className="text-violet-500">{texts[locale].titre}</span> {texts[locale].kapsule}
 					</h1>
-					<Button texte={texts[locale].telecharger} lien="/vscode-survival-kit.zip" />
+					<Button texte={texts[locale].telecharger} />
 				</div>
 
 				<div className="w-full max-w-4xl hidden xl:block perspective-container">
