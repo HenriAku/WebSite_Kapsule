@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Footer = () => {
 	return (
-		<footer className="bg_bleu_nuit p-4 flex flex-col items-center justify-center">
+		<footer className="bg-gradient-to-b from-[#0B0F39] to-[#262378] p-4 flex flex-col items-center justify-center">
 			<div className="md:text-left mb-4 font 
 					grid grid-cols-1 md:grid-cols-3 gap-4 pb-5">
 				<div className="pb-5 md:mt-5 text-lg flex">
