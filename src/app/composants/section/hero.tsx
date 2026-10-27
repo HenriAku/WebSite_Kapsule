@@ -52,6 +52,7 @@ export const Hero = () => {
 		/* h-screen + w-screen forcent le composant à occuper 100% du viewport */
 		<section id="hero" className="h-screen w-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12
 				bg-gradient-to-b from-[#0B0F39] to-[#262378]">
+			{/* logo et nom en haut a gauche */}
 			<div className="inset-0 flex-row hidden xl:block">
 				<img
 					src="./image/Kapsule.png"
@@ -65,7 +66,7 @@ export const Hero = () => {
 
 			{/* Contenu aligné au centre vertical et horizontal */}
 			<div className="flex flex-col lg:flex-row items-center justify-center h-full p-20 gap-5">
-				<div className="font-bold text-white mb-4 w-1/2">
+				<div className="font-bold text-white mb-4 w-full max-w-3xl">
 					<h1 className="text-3xl sm:text-4xl lg:text-5xl md font-bold text-white mb-4">
 						 <span className="text-violet-500">{texts[locale].titre}</span> {texts[locale].kapsule}
 					</h1>
@@ -78,7 +79,7 @@ export const Hero = () => {
 
 				</div>
 
-				<div className="w-full max-w-2xl hidden xl:block perspective-container">
+				<div className="w-full max-w-3xl hidden xl:block perspective-container">
 					<div className="video-3d">
 						<video
 							src="/video/hero.mp4"
