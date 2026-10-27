@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   partialPrefetching: true,
+  outputFileTracingIncludes: {
+    "/api/download": ["./downloads/kapsule.exe"],
+  },
   turbopack: {
     rules: {
       "*.css": {

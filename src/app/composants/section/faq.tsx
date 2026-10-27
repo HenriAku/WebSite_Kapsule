@@ -7,7 +7,6 @@ import { useParams } from "next/dist/client/components/navigation";
 export const FAQ = () => {
 	const params = useParams();
 	const locale = params.locale === "en" ? "en" : "fr";
-	const isEnglish = locale === "en";
 
 	const texts = {
 		en: {

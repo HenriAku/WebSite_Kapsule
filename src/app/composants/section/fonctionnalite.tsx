@@ -8,7 +8,6 @@ import { Tag } from "../composants/tag";
 export const Fonctionnalite = () => {
 	const params = useParams();
 	const locale = params.locale === "en" ? "en" : "fr";
-	const isEnglish = locale === "en";
 	
 	const texts = {
 		en: {
