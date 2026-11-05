@@ -92,7 +92,7 @@ export const Navbar = () => {
 			>
 				<div className="flex">
 					<button
-						className="lg:hidden text-3xl"
+						className="md:hidden text-3xl"
 						onClick={() => setOpen(!open)}
 						aria-label={
 							isEnglish ? "Open menu" : "Ouvrir le menu"
@@ -135,23 +135,26 @@ export const Navbar = () => {
 								</Link>
 							</li>
 						))}
-
-						<li className="hover_violet">
-							<Link
-								href={isEnglish ? "/fr" : "/en"}
-								hrefLang={isEnglish ? "fr" : "en"}
-								onClick={() => setOpen(false)}
-								aria-label={
-									isEnglish
-										? "Switch to French"
-										: "Passer en anglais"
-								}
-								className="transition-all duration-300"
-							>
-								{isEnglish ? "FR" : "EN"}
-							</Link>
-						</li>
 					</ul>
+				</div>
+				<div className={` flex justify-center items-center md:absolute md:right-1 lg:pr-2
+					md:top-1/2 md:-translate-y-1/2 mt-4 md:mt-0 ${open ? "block" : "hidden md:flex"}`}>
+					<div className="hover_violet flex flex-row gap-2 items-center text-white">
+						<img src="/image/planet.png" alt="Language Icon" className="w-5 h-5" />
+						<Link
+							href={isEnglish ? "/fr" : "/en"}
+							hrefLang={isEnglish ? "fr" : "en"}
+							onClick={() => setOpen(false)}
+							aria-label={
+								isEnglish
+									? "Switch to French"
+									: "Passer en anglais"
+							}
+							className={`transition-all duration-300 ${isScrolled ? "text-xl" : "text-2xl"}`}
+						>
+							{isEnglish ? "FR" : "EN"}
+						</Link>
+					</div>
 				</div>
 			</nav>
 		</div>

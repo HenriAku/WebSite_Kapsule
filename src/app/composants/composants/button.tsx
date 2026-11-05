@@ -9,7 +9,7 @@ export const Button = ({ texte, onClick }: ButtonProps) => {
         <a
             href="/api/download"
             onClick={onClick}
-            className="btn_violet inline-flex items-center justify-center
+            className="btn_violet inline-flex items-center justify-center w-30 sm:w-50
                 text-white px-6 py-3 rounded-lg
                 transition-all duration-300
                 hover:scale-102 hover:-translate-y-1

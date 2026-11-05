@@ -54,11 +54,16 @@ export const Demo = () => {
 
 	return (
 		<div id="demo" className="flex flex-col items-center justify-center bg-white p-15">
-			<Tag texte={texts[locale].tag} />
-			<h2 className="text-4xl font-bold text-center mb-10 text_bleu_nuit">{texts[locale].h2}</h2>
-			<p className="text-lg text-center mb-7 text-black w-1/2">
-				{texts[locale].p}
-			</p>
+			<div className="flex flex-col items-center justify-center text-center">
+				<Tag texte={texts[locale].tag} />
+				<h2 className="font-bold mb-5 text_bleu_nuit
+					sm:text-2xl md:text-3xl lg:text-4xl text-2xl">
+					{texts[locale].h2}
+				</h2>
+				<p className="mb-7 text-black">
+					{texts[locale].p}
+				</p>
+			</div>
 			<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-center gap-10 p-5">
 				<Video
 					src="/video/lancement.mp4"

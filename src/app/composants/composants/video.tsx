@@ -17,7 +17,7 @@ export const Video = ({src, titre, description}:{src: string; titre: string; des
 					<h3 className="text-xl font-bold mt-4 text_bleu_nuit">
 						{titre}
 					</h3>
-					<p className="mt-2 text-gray-800 w-120 lg:w-100 xl:w-120">
+					<p className="mt-2 text-gray-800 w-40 sm:w-70 md:w-90 lg:w-100 xl:w-120">
 						{description}
 					</p>
 				</div>

@@ -50,7 +50,7 @@ export const Hero = () => {
 
 	return (
 		/* h-screen + w-screen forcent le composant à occuper 100% du viewport */
-		<section id="hero" className="h-screen w-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12
+		<section id="hero" className="h-100 sm:h-screen w-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12
 				bg-gradient-to-b from-[#0B0F39] to-[#262378]">
 			{/* logo et nom en haut a gauche */}
 			<div className="inset-0 flex-row hidden xl:block">
@@ -65,18 +65,19 @@ export const Hero = () => {
 			</div>
 
 			{/* Contenu aligné au centre vertical et horizontal */}
-			<div className="flex flex-col lg:flex-row items-center justify-center h-full p-20 gap-5">
+			<div className="flex flex-col lg:flex-row items-center justify-center h-full p-5 sm:p-20 gap-5">
 				<div className="font-bold text-white mb-4 w-full max-w-3xl">
-					<h1 className="text-3xl sm:text-4xl lg:text-5xl md font-bold text-white mb-4">
+					<h1 className="text-xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
 						 <span className="text-violet-500">{texts[locale].titre}</span> {texts[locale].kapsule}
 					</h1>
-					<div className="flex flex-col sm:flex-row items-center gap-4">
+					<div className="flex flex-row gap-4">
 						<Button texte={texts[locale].telecharger} onClick={handleDownload} />
-						<p className="text-white text-sm sm:text-base">
-							{downloadCount} {locale === "en" ? "downloads" : "téléchargements"}
-						</p>
+						{downloadCount > 10 && (
+							<p className="text-white text-sm sm:text-base pt-3">
+								{downloadCount} {locale === "en" ? "downloads" : "téléchargements"}
+							</p>
+						)}
 					</div>
-
 				</div>
 
 				<div className="w-full max-w-3xl hidden xl:block perspective-container">
