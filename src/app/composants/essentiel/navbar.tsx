@@ -113,7 +113,7 @@ export const Navbar = () => {
 							${isScrolled ? "text-xl" : "text-2xl"}`}
 					>
 						{links.map((link) => (
-							<li key={link.id} className="hover_violet">
+							<li key={link.id} className="hover_violet md:py-0 py-1 ">
 								<Link
 									href={link.href}
 									onClick={() => {
