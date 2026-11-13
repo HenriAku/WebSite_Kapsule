@@ -1,7 +1,8 @@
 "use client";
 import { useParams } from "next/dist/client/components/navigation";
-import { Button } from "../composants/button";
 import { useCallback, useEffect, useState } from "react";
+import { Hero2 } from "../composants/hero";
+import {initFlowbite} from "flowbite";
 
 export const Hero = () => {	
 	const params = useParams();
@@ -9,12 +10,12 @@ export const Hero = () => {
 	const texts = {
 		en: {
 			titre: "Launch your workspaces faster with",
-			kapsule: "Kapsule.",
+			titre2: "New version available! Launch your workspaces faster with a",
 			telecharger: "Download",
 		},
 		fr: {
 			titre: "Lancez vos espaces de travail plus vite avec",
-			kapsule: "Kapsule.",
+			titre2: "Nouvelle version disponible ! Lancez vos espaces de travail plus vite avec un",
 			telecharger: "Télécharger",
 		},
 	};
@@ -38,6 +39,7 @@ export const Hero = () => {
 	}, []);
 
 	useEffect(() => {
+		initFlowbite();
         void refreshCount();
     }, [refreshCount]);
 
@@ -50,49 +52,41 @@ export const Hero = () => {
 
 	return (
 		/* h-screen + w-screen forcent le composant à occuper 100% du viewport */
-		<section id="hero" className="h-100 sm:h-screen w-screen overflow-hidden flex flex-col justify-between p-6 sm:p-12
-				bg-gradient-to-b from-[#0B0F39] to-[#262378]">
-			{/* logo et nom en haut a gauche */}
-			<div className="inset-0 flex-row hidden xl:block">
-				<img
-					src="./image/Kapsule.png"
-					alt="Image de fond"
-					className="w-15 h-15 object-cover opacity-50 absolute top-5 left-15"
-				/>
-				<h2 className="absolute top-7 left-30 text-3xl font-bold text-white">
-					KAPSULE
-				</h2>
-			</div>
-
-			{/* Contenu aligné au centre vertical et horizontal */}
-			<div className="flex flex-col lg:flex-row items-center justify-center h-full p-5 sm:p-20 gap-5">
-				<div className="font-bold text-white mb-4 w-full max-w-3xl">
-					<h1 className="text-xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-						 <span className="text-violet-500">{texts[locale].titre}</span> {texts[locale].kapsule}
-					</h1>
-					<div className="flex flex-row gap-4">
-						<Button texte={texts[locale].telecharger} onClick={handleDownload} />
-						{downloadCount > 10 && (
-							<p className="text-white text-sm sm:text-base pt-3">
-								{downloadCount} {locale === "en" ? "downloads" : "téléchargements"}
-							</p>
-						)}
-					</div>
-				</div>
-
-				<div className="w-full max-w-3xl hidden xl:block perspective-container">
-					<div className="video-3d">
-						<video
-							src="/video/hero.mp4"
-							autoPlay
-							loop
-							muted
-							playsInline
-							className="w-full rounded-2xl"
+		<div id="default-carousel" className="relative w-full" data-carousel="slide" data-carousel-interval="20000">
+			<div className="relative overflow-hidden rounded-lg h-100 sm:h-screen w-screen">
+				<div className="hidden duration-900 ease-in-out" data-carousel-item>
+					<div className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+						<Hero2
+							titre={texts[locale].titre}
+							Name="Kapsule."
+							video="/video/hero.mp4"
+							telecharger={texts[locale].telecharger}
 						/>
 					</div>
 				</div>
-			</div>
-		</section>
+				<div className="hidden duration-900 ease-in-out" data-carousel-item>
+					<div className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+						<Hero2
+							titre={texts[locale].titre2}
+							Name="Shortcuts."
+							video="/video/Shortcut.mp4"
+							telecharger={texts[locale].telecharger}
+						/>
+					</div>
+				</div>
+			</div>	
+			<button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+				<span className="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+					<svg className="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor"  d="m15 19-7-7 7-7"/></svg>
+					<span className="sr-only">Previous</span>
+				</span>
+			</button>
+			<button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+				<span className="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+					<svg className="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor"  d="m9 5 7 7-7 7"/></svg>
+					<span className="sr-only">Next</span>
+				</span>
+			</button>
+		</div>
 	);
 };

@@ -24,8 +24,8 @@ export const Fonctionnalite = () => {
 				description: "Customize your kapsules according to your specific needs, adding the tools and features you need.",
 			},
 			card3: {
-				titre: "Favorites",
-				description: "Add your favorite kapsules to your favorites list for quick access.",
+				titre: "Shortcuts",
+				description: "Create shortcuts to your favorite kapsules for quick access. Or launch Kapsule at the start of your PC.",
 			},
 			card4: {
 				titre: "Simple Settings",
@@ -54,8 +54,8 @@ export const Fonctionnalite = () => {
 				description: "Personnalisez vos kapsules selon vos besoins spécifiques, en ajoutant les outils et fonctionnalités dont vous avez besoin.",
 			},
 			card3: {
-				titre: "Favoris",
-				description: "Ajoutez vos kapsules préférées à votre liste de favoris pour y accéder rapidement.",
+				titre: "Shortcuts",
+				description: "Créez un raccourci vers vos Kapsules préférées pour un accès rapide. Ou lancer Kapsule au demarge de votre PC.",
 			},
 			card4: {
 				titre: "Paramètres simples",
@@ -90,32 +90,38 @@ export const Fonctionnalite = () => {
 				<Card 
 					titre={texts[locale].card1.titre}
 					description={texts[locale].card1.description}
-					imageSrc="/image/flash.svg" 
+					imageSrc="/image/flash.svg"
+					tag={false}
 				/>
 				<Card 
 					titre={texts[locale].card2.titre}
 					description={texts[locale].card2.description}
 					imageSrc="/image/plus.svg" 
+					tag={false}
 				/>
 				<Card 
 					titre={texts[locale].card3.titre}
 					description={texts[locale].card3.description}
-					imageSrc="/image/favorite.svg" 
+					imageSrc="/image/shortcuts.svg" 
+					tag={true}
 				/>
 				<Card 
 					titre={texts[locale].card4.titre}
 					description={texts[locale].card4.description}
 					imageSrc="/image/settings.svg" 
+					tag={false}
 				/>
 				<Card 
 					titre={texts[locale].card5.titre}
 					description={texts[locale].card5.description}
 					imageSrc="/image/update.svg" 
+					tag={false}
 				/>
 				<Card 
 					titre={texts[locale].card6.titre}
 					description={texts[locale].card6.description}
 					imageSrc="/image/shield.svg" 
+					tag={false}
 				/>
 			</div>
 		</div>

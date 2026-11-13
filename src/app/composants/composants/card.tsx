@@ -1,4 +1,4 @@
-export const Card = ({ titre, description, imageSrc }: { titre: string; description: string; imageSrc: string }) => {
+export const Card = ({ titre, description, imageSrc, tag }: { titre: string; description: string; imageSrc: string; tag: boolean }) => {
 	return (
 		<div className="bg_card rounded-4xl p-5 flex flex-col h-70 w-70
 				shadow-[12px_12px_25px_rgba(59,55,172,0.50)]
@@ -20,7 +20,15 @@ export const Card = ({ titre, description, imageSrc }: { titre: string; descript
 					WebkitMaskPosition: "center",
 				}}
 			/>
-			<h3 className="text-xl font font-bold mb-2 text-white">{titre}</h3>
+			<div className="flex flex-row gap-4 mb-2">
+				<h3 className="text-xl font font-bold text-white">{titre}</h3>
+				{tag && (
+					<div className="bg_tag text-white px-4  rounded-full shadow-md transition 
+							duration-300 ease-in-out hover:scale-105 hover:shadow-lg w-max">
+						<p className="text-lg font-semibold text_bleu_nuit">New</p>
+					</div>
+				)}
+			</div>
 			<hr className="w-full border-t border-white p-3" />
 			<p className="text-white w-9/10">{description}</p>
 		</div>

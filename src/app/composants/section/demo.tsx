@@ -21,8 +21,8 @@ export const Demo = () => {
 				description: "Easily find the applications you need.",
 			},
 			video3: {
-				titre: "Add to Favorites",
-				description: "Add your favorite Kapsules to your favorites list for quick access.",
+				titre: "Create a Shortcut",
+				description: "Create a shortcut to your favorite Kapsules for quick access. Launch your favorite Kapsules with a single click.",
 			},
 			video4: {
 				titre: "Simple Settings",
@@ -42,8 +42,8 @@ export const Demo = () => {
 				description: "Trouvez facilement les applications dont vous avez besoin.",
 			},
 			video3: {
-				titre: "Ajout aux favoris",
-				description: "Ajoutez vos Kapsules préférées à votre liste de favoris pour y accéder rapidement.",
+				titre: "Crée un shortcut",
+				description: "Créez un raccourci vers vos Kapsules préférées pour un accès rapide. Lancer vos Kapsules favorites en un seul clic.",
 			},
 			video4: {
 				titre: "Paramètres simples",
@@ -69,21 +69,25 @@ export const Demo = () => {
 					src="/video/lancement.mp4"
 					titre={texts[locale].video1.titre}
 					description={texts[locale].video1.description}
+					tag={false}
 				/>
 				<Video
 					src="/video/recherche.mp4"
 					titre={texts[locale].video2.titre}
 					description={texts[locale].video2.description}
+					tag={false}
 				/>
                 <Video
-					src="/video/fav.mp4"
+					src="/video/Shortcut.mp4"
 					titre={texts[locale].video3.titre}
 					description={texts[locale].video3.description}
+					tag={true}
 				/>
                 <Video
 					src="/video/settings.mp4"
 					titre={texts[locale].video4.titre}
 					description={texts[locale].video4.description}
+					tag={false}
 				/>
 			</div>
 		</div>
