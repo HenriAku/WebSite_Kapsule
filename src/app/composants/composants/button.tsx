@@ -18,4 +18,4 @@ export const Button = ({ texte, onClick }: ButtonProps) => {
             {texte}
         </a>
     );
-};
+}; 
